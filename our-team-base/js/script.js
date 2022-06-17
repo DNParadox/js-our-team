@@ -28,11 +28,43 @@
 // console.log(test.nome[1][1])
 
 
-const card = {
+const cardArray = {
    name : ["Wayne Barnett", "Angela Caroll", "Walter Gordon", "Angela Lopez", "Scott Estrada", "Barbara Ramos"],
    role : ["Founder & CEO", "Chief Editor", "Office Manager", "Social Media Manager", "Developer", "Graphic Designer"]
 }
 
 
 // Stamp simile verrà in html 
-// console.log("Nome: " + card.nome[0] + " ruolo: " + card.ruolo[0])
+// console.log("Nome: " + cardArray.name[0] + " ruolo: " + cardArray.role[0])
+// console.log(cardArray.name.length)
+
+
+// Selezioniamo il div da manipolare e costruiamo un ciclo for per poterci interagire
+const cardContainer = document.querySelector('.team-container');
+
+// Creato il ciclo for possiamo dunque farsì che 
+for(let i = 0; i < cardArray.name.length; i++) {
+    const thisCard = cardArray;
+    console.log("ciclo for",thisCard);
+    console.log(i);
+
+    // Creare un nuovo template compilato coi dati giusti
+    const cardToDraw = `
+    <div class="team-card">
+        <div class="card-image">
+            <img
+            src="img/wayne-barnett-founder-ceo.jpg"
+            alt="Wayne Barnett"
+            />
+    </div>
+        <div class="card-text">
+            <h3>${thisCard.name[0]}</h3>
+            <p>${thisCard.role[0]}<p>
+        </div>
+    </div>
+    `;
+
+
+    // concatenarlo a cardContainer
+    cardContainer.innerHTML += cardToDraw;
+}
